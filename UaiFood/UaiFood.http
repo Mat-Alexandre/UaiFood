@@ -1,0 +1,6 @@
+@UaiFood_HostAddress = http://localhost:5029
+
+GET {{UaiFood_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
