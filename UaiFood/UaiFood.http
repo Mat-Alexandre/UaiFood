@@ -1,6 +1,20 @@
-@UaiFood_HostAddress = http://localhost:5005
+@UaiFood_HostAddress = https://localhost:7253
 
-GET {{UaiFood_HostAddress}}/weatherforecast/
-Accept: application/json
 
+POST {{UaiFood_HostAddress}}/api/organizationemployee
+Content-Type: application/json
+
+{
+    "email": "matheus@email.com",
+    "firstname": "Matheus",
+    "lastname": "Alexandre",
+    "hashedpassword": "123789sadkjh98123hjkasd",
+    "role": "Administrator",
+    "userid": "1",
+    "phoneNumber": [
+        "3299999999",
+        "3299999999"
+    ],
+    "salt": "123890ajksdl98akjhsdf"
+}
 ###
