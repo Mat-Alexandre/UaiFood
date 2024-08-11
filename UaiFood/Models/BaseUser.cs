@@ -9,6 +9,6 @@ public abstract class BaseUser
     public String HashedPassword { get; set; } = null!;
     public String Email { get; set; } = null!;
     public String? Salt { get; set; }
-    public String? PhoneNumber { get; set; }
+    public List<String> PhoneNumber { get; set; } = null!;
 
 }

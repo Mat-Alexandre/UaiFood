@@ -10,5 +10,5 @@ public class Store : BaseUser
     public override String UserId { get; set; } = null!;
     public Address AddressInfo { get; set; } = null!;
     public String StoreName { get; set; } = null!;
-    public int MinimumRequest { get; set; }
+    public uint MinimumOrder { get; set; }
 }

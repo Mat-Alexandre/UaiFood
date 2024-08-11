@@ -17,8 +17,8 @@ public class Order
     [ForeignKey("Product")]
     public int ProductId { get; set; }
     [DataType(DataType.Date)]
-    public DateTime OrderDate { get; set; }
+    public DateTime OrderStartDate { get; set; }
     [DataType(DataType.Date)]
-    public DateTime EndDate { get; set; }
+    public DateTime OrderEndDate { get; set; }
     public String OrderStatus { get; set; } = null!;
 }
