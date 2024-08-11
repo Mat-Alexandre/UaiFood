@@ -5,10 +5,10 @@ namespace UaiFood.Models;
 public abstract class BaseUser
 {
     [Key]
-    public String UserId { get; set; } = null!;
+    public virtual String UserId { get; set; } = null!;
     public String HashedPassword { get; set; } = null!;
-    public String? Salt { get; set; }
     public String Email { get; set; } = null!;
-    public String? PhoneNumber { get; set; }
+    public String? Salt { get; set; }
+    public List<String> PhoneNumber { get; set; } = null!;
 
 }
