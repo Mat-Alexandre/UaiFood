@@ -1,15 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using UaiFood.Data;
+using UaiFood.Context;
+using UaiFood.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
 // Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddDbContext<PostgresqlContext>(options => options.UseNpgsql(
-    configuration["Connnectionstrings:PsqlConnection"])
+builder.Services.AddDbContext<OrganizationContext>(options => options.UseNpgsql(
+    configuration["Connnectionstrings:OrganizationDBConnection"])
 );
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -17,6 +16,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+#region Endpoit definitions
+
+// This endpoint should be accessible only for authorized users
+app.MapPost("/api/organizationemployee", OrganizationEmployeesController.CreateEmployee);
+app.MapGet("/api/organizationemployee", OrganizationEmployeesController.GetEmployee);
+
+#endregion
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,9 +33,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
